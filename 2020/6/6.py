@@ -39,6 +39,23 @@ def part_two(lines):
     print(yeses)
 
 
+def part_two_take_two(lines):
+    # part two using sets
+    yeses = 0
+    buffer = []
+
+    for l in lines:
+        if not l.strip():
+            yeses += len(set.intersection(*buffer))
+            buffer = []
+        else:
+            buffer.append(set(l.strip()))
+    else:
+        yeses += len(set.intersection(*buffer))
+
+    print(yeses)
+
+
 def main():
     lines = []
 
@@ -48,6 +65,7 @@ def main():
 
     part_one(lines)
     part_two(lines)
+    part_two_take_two(lines)
 
 
 if __name__ == '__main__':
