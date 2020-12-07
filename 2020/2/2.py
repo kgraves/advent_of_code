@@ -6,6 +6,7 @@ INPUT_RE = re.compile('^(\d+)\-(\d+)\ ([a-z])\:\ ([a-z]+)$')
 
 
 def part_one(lines):
+    valids = 0
     for line in lines:
         res = INPUT_RE.match(line)
         min_, max_ = int(res.group(1)), int(res.group(2))
