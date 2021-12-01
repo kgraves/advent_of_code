@@ -11,8 +11,7 @@ def iter_pairs(iterable):
 def iter_triple(iterable):
     a, b, c = itertools.tee(iterable, 3)
     next(b, None)
-    next(c, None)
-    next(c, None)
+    next(c, None); next(c, None)
     return zip(a, b, c)
 
 
@@ -28,8 +27,7 @@ def part_one(nums):
 def part_two(nums):
     increases = 0
     iter_ = iter_triple(nums)
-    prev, curr, next_ = next(iter_)
-    prev_sum = prev + curr + next_
+    prev_sum = sum(next(iter_))
 
     for prev, curr, next_ in iter_:
         curr_sum = (prev + curr + next_)
