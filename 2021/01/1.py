@@ -18,8 +18,6 @@ def iter_triple(iterable):
 
 def part_one(nums):
     increases = 0
-    decs = 0
-    steps = 0
     for prev, curr in iter_pairs(nums):
         if curr > prev:
             increases += 1
