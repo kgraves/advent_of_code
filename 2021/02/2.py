@@ -1,43 +1,57 @@
-import itertools
+from dataclasses import dataclass
 import sys
 
-DIRS = {
-    'forward': (1, 0),
-    'down': (0, 1),
-    'up': (0, -1),
-}
+@dataclass
+class SubOne:
+    x: int = 0
+    y: int = 0
+    dirs = {
+        'forward': (1, 0),
+        'down': (0, 1),
+        'up': (0, -1),
+    }
+
+    def move(self, dir_, num):
+        dx, dy = self.dirs[dir_]
+        self.x += dx * num
+        self.y += dy * num
+
+
+@dataclass
+class SubTwo:
+    x: int = 0
+    y: int = 0
+    aim: int = 0
+
+    def down(self, num):
+        self.aim += num
+
+    def up(self, num):
+        self.aim -= num
+
+    def forward(self, num):
+        self.x += num
+        self.y += self.aim * num
 
 
 def part_one(lines):
-    x, y = 0, 0
+    sub = SubOne()
 
     for line in lines:
         dir_, num = line.split(' ')
-        num = int(num)
-        dx, dy = DIRS[dir_]
+        sub.move(dir_, int(num))
 
-        x += dx * num
-        y += dy * num
-
-    print(x * y)
+    print(sub.x * sub.y)
 
 
 def part_two(lines):
-    x, y, aim = 0, 0, 0
+    sub = SubTwo()
 
     for line in lines:
         dir_, num = line.split(' ')
-        num = int(num)
+        getattr(sub, dir_)(int(num))
 
-        if dir_ == 'down':
-            aim += num
-        elif dir_ == 'up':
-            aim -= num
-        else:
-            x += num
-            y += aim * num
-
-    print(x * y)
+    print(sub.x * sub.y)
 
 
 def main():
