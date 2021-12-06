@@ -17,8 +17,8 @@ class Board:
         for i, row in enumerate(self.rows):
             for j, _ in enumerate(row):
                 if self.rows[i][j] == num:
-                    self.rows[i][j] = -1
-                    self.cols[j][i] = -1
+                    self.rows[i][j] = MARKER
+                    self.cols[j][i] = MARKER
 
     def is_winner(self):
         for row in self.rows:
@@ -36,7 +36,7 @@ class Board:
 def part_one(drawn, boards):
     bs = [Board(b) for b in boards]
 
-    for i, d in enumerate(drawn):
+    for d in drawn:
         for b in bs:
             b.mark(d)
 
