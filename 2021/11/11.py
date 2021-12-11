@@ -40,7 +40,7 @@ def part_one(lines):
 
         for r in range(h):
             for c in range(w):
-                if map_[r][c] > 9 or map_[r][c] < 0:
+                if map_[r][c] > 9:
                     map_[r][c] = 0
 
     print(count)
@@ -63,7 +63,7 @@ def part_two(lines):
 
         for r in range(h):
             for c in range(w):
-                if map_[r][c] > 9 or map_[r][c] < 0:
+                if map_[r][c] > 9:
                     map_[r][c] = 0
 
         if sum(sum(r) for r in map_) == 0:
