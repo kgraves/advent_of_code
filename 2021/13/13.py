@@ -1,12 +1,3 @@
-import collections
-import functools
-import itertools
-import math
-import re
-import sys
-from dataclasses import dataclass
-
-
 def part_one(coords, folds):
     for dir_, offset in folds:
         new_coords = coords.copy()
