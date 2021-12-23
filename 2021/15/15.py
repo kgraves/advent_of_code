@@ -51,7 +51,7 @@ def astar_paged(map_, h, w, pages=1):
 
     s = (0, 0, 0)
     weights[(0, 0)] = 0
-    distances[(0, 0)] = dist(0, 0, h - 1, w - 1)
+    distances[(0, 0)] = dist(0, 0, h * pages - 1, w * pages - 1)
     pq = [s]
     heapq.heapify(pq)
 
