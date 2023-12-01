@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Accepts only one argument: the non-zero-padded problem number (e.g. 4, 12)
+
+YEAR=$(date +'%Y')
+PADDED_DIR_NAME=$(printf "%02d" $1)
+
+echo $PADDED_DIR_NAME
+
+# create dir structure
+PROBLEM_PATH="$YEAR"/"$PADDED_DIR_NAME"
+mkdir -p $PROBLEM_PATH
+touch $PROBLEM_PATH/sample.txt
+touch $PROBLEM_PATH/input.txt
+cp template.py $PROBLEM_PATH/$1.py

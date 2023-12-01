@@ -23,7 +23,7 @@ def part_two(seat_nums):
         nums.append((row * 8) + col)
 
     snums = sorted(nums)
-    for i,n in enumerate(snums):
+    for i, n in enumerate(snums):
         if n+1 != snums[i+1]:
             print(n+1)
             return

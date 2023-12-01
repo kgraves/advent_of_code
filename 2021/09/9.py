@@ -4,7 +4,7 @@ import sys
 
 def get_dirs(y, x, h, w):
     candidates = [(-1, 0), (1, 0), (0, 1), (0, -1)]
-    return [(y + dy, x + dx) for dy, dx in candidates if (0 <= (y + dy) < h) and (0 <= (x + dx) < w )]
+    return [(y + dy, x + dx) for dy, dx in candidates if (0 <= (y + dy) < h) and (0 <= (x + dx) < w)]
 
 
 def low_points(map_):

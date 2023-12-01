@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Accepts only one argument: the non-zero-padded problem number (e.g. 4, 12)
+
+YEAR=$(date +'%Y')
+PADDED_DIR_NAME=$(printf "%02d" $1)
+
+PYTHONPATH=. venv/bin/python "$YEAR/$PADDED_DIR_NAME/$1.py"

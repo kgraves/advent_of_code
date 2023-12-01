@@ -14,13 +14,13 @@ def part_one(seats):
         valid_j = range(0, len(seats[0]))
         candidates = []
 
-        for i,j in [
+        for i, j in [
             (i-1, j-1), (i-1, j), (i-1, j+1),
             (i,   j-1),           (i,   j+1),
             (i+1, j-1), (i+1, j), (i+1, j+1),
         ]:
             if (i in valid_i and j in valid_j):
-                candidates.append((i,j))
+                candidates.append((i, j))
 
         return candidates
 
@@ -34,19 +34,19 @@ def part_one(seats):
                 candidates = get_surrounding_seats(seats, i, j)
 
                 if seats[i][j] == 'L':
-                    if all(seats[x][y] in ('.', 'L') for x,y in candidates):
-                        to_fill.append((i,j))
+                    if all(seats[x][y] in ('.', 'L') for x, y in candidates):
+                        to_fill.append((i, j))
                 elif seats[i][j] == '#':
-                    if sum(int(seats[x][y] == '#') for x,y in candidates) >= 4:
-                        to_unfill.append((i,j))
+                    if sum(int(seats[x][y] == '#') for x, y in candidates) >= 4:
+                        to_unfill.append((i, j))
 
         if len(to_fill) == 0 and len(to_unfill) == 0:
             is_stable = True
 
-        for i,j in to_fill:
+        for i, j in to_fill:
             seats[i][j] = '#'
 
-        for i,j in to_unfill:
+        for i, j in to_unfill:
             seats[i][j] = 'L'
 
         to_fill = []
